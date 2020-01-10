@@ -1,0 +1,26 @@
+<h2 class="display-4  text-center mb-3">Add Project <i class="fa fa-folder-open m"></i></h2>
+
+<%= form_with(model: [current_user, current_user.projects.build]) do |form| %>
+
+<div class="container" style="border:1px solid #cecece;">
+    <div class="row mt-4 mb-3" >
+        <div class="col-md-12 col-xs-12">
+            <%= form.label :Project_name %>
+            <%= form.text_field( :name,{ :class => "form-control"}) %>
+        </div>
+    </div>    
+    <div class="row mb-3">
+        <div class="col-md-12 col-xs-12">
+            <%= form.label :Project_details %>
+            <%= form.text_area( :details, {:class => "form-control"}) %>
+        </div>
+    </div>  
+    <div class="row mb-4">
+        <div class="col-md-12 col-xs-12">
+            <%= form.submit({:class => "btn btn-outline-primary btn-block"}) %>
+          
+        </div>
+    </div>    
+</div>
+<% end %>
+

@@ -1,0 +1,27 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.pname {
+  display: flex;
+  justify-content: space-evenly;
+}
+.btn {
+  justify-content: space-between;
+}
+.fm {
+  color: darkcyan;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+}
+
+.profile-details {
+  display: flex;
+  justify-content: space-between;
+}
+.divider {
+  border: 1px solid;
+  background-color: darken($color: #000000, $amount: 0);
+  position: absolute;
+  top: 0;
+  bottom: 0em;
+}

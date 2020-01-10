@@ -1,0 +1,31 @@
+<div class="fm">
+<h1 class="text-center mt-4 mb-3">Log In <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
+    <%= form_with scope: :session ,url: sessions_path do |form| %>
+    <div class="container box" style="border:1px solid #cecece;">
+
+    <div class="row mt-3">
+    <div class="col-md-12">    
+        <p>
+            <%= form.label :email %>
+            <%= form.text_field( :email, {:class =>'form-control' })%>
+        </p>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12">    
+        <p>
+            <%= form.label :password %>
+            <%= form.password_field( :password, {:class =>'form-control' })%>
+        </p>
+        </div>
+    
+    </div>
+    <div class="row">
+        <div class="col-md-12">        
+        <p>
+            <%= form.submit("Log in",{:class => "btn btn-outline-success btn-block"}) %>
+        </p>
+        </div>
+    </div>
+    <% end %>     
+</div>

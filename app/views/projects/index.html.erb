@@ -1,0 +1,19 @@
+  <h3 class=""> Projects</h3>
+  <div class="c"> 
+    <% current_user.projects.each do |project| %>
+  
+     <div class="card m-2 c" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= project.name %></h5>
+        <hr>
+        <p class="card-text"><%= project.details %></p>  
+        <%= link_to 'Show',"projects/#{project.id}" , :class => "btn btn-light" %>
+        <%= link_to 'Edit',"projects/#{project.id}/edit", :class => "btn btn-warning" %> 
+        <%= link_to 'X', "projects/#{project.id}", 
+                                       method: :delete,
+                                      data: {confirm: "Are you sure?"}, 
+                                      :class => "btn btn-danger" %> 
+      </div>
+      </div>
+    <% end %>
+  </div>

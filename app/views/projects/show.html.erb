@@ -1,0 +1,10 @@
+<div class="project">
+<div class="card" style="width: 40rem;">
+  <img src="https://www.enr.com/ext/resources/custom-content/Infocenter/2018/Unanet/Untitled-19.jpg?1575391866" class="card-img-top" alt="project">
+  <div class="card-body">
+    <h5 class="card-title"><%= @project.name %></h5>
+    <p class="card-text"><%= @project.details %></p>
+  </div>
+</div>
+<%= link_to 'Back', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm' %>
+</div>

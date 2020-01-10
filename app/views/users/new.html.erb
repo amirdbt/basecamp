@@ -1,0 +1,76 @@
+<div class="fm">
+<h1 class="text-center mt-4 mb-3">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></h1>
+
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+    <% end %>
+<% end %>
+<%= form_with scope: :user, url: users_path, local: true do |form| %>
+<div class="container box" style="border:1px solid #cecece;">
+<div class="row mt-2">
+    <div class="col-md-6"> <p>
+        <%= form.label :firstname %>
+        <%= form.text_field( :firstname, {:class =>"form-control"} )%>
+    </p> </div> 
+    <div class="col-md-6"> 
+    <p>
+        <%= form.label :lastname %>
+        <%= form.text_field( :lastname, {:class =>"form-control"}) %>
+    </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12"> <p>
+        <%= form.label :email %>
+        <%= form.email_field( :email, {:class =>"form-control" })%>
+    </p> </div>
+   </div>
+<div class="row">
+    <div class="col-md-6">
+       <p>
+        <%= form.label :location %>
+        <%= form.text_field( :location, {:class => 'form-control'} ) %>
+    </p> </div>
+    <div class="col-md-6">      
+       <p>
+        <%= form.label :job_title %>
+        <%= form.text_field( :job_title,{ :class => "form-control" })%>
+    </p>
+    </div>
+</div>
+<div class="row">
+     <div class="col-md-6">    
+      <p>
+        <%= form.label :password %>
+        <%= form.password_field( :password, {:class =>'form-control' })%>
+    </p>
+    </div>
+    <div class="col-md-6">      
+      
+       <p>
+        <%= form.label :confirm_password %>
+        <%= form.password_field( :password_confirmation, {:class =>'form-control' })%>
+    </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+    
+       <p>
+        <%= form.submit({:class => "btn btn-outline-success btn-block"}) %>
+    </p>
+    </div>
+</div>
+</div>
+<% end %>
+
+
+
+   
+       
+    
+
+</div>

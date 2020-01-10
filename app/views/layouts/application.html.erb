@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basecamp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+   <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+   <img src="https://upskill.us.qwasar.io/assets/logo-926e999808b6038bbf3c4a89af2fac72c5ba2ec4c658ba5bcef5a4a274044c21.svg" width="50px" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+  <a class="navbar-brand" href="#">MyBaseCamp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <%= link_to "Home",'/welcome' %>
+      </li>
+    </ul>
+      <div class="log">  
+     
+      <% if logged_in? %>  
+       <li class="nav-item">   
+       <i class="fa fa-users m" ></i>   
+        <%= link_to "All Users", users_path %>
+      </li>
+       <li class="nav-item">   
+       <i class="fa fa-user-circle m" ></i>   
+        <%= link_to "Dashboard", user_path(current_user) %>
+      </li>
+        <li class="nav-item m">
+          <i class="fa fa-sign-out"></i>
+        <%= link_to "Logout", '/logout' %>
+      </li>
+      <% end  %>
+      <% if !logged_in? %>
+       <li class="nav-item">
+      <i class="fa fa-sign-in m" ></i>
+        <%= link_to "Log in", '/login' %>
+      </li> 
+      <li class="nav-item">
+      <i class="fa fa-user-plus m" ></i>
+        <%= link_to "Sign Up", new_user_path %>
+      </li> 
+      <% end %>   
+      </div>
+  </div>
+</nav>
+  <div class="container">
+      <%= yield %>
+  </div>
+  </body>
+</html>
