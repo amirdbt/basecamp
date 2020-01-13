@@ -1,6 +1,6 @@
 <h2 class="display-4  text-center mb-3">Edit Project <i class="fa fa-folder-open m"></i></h2>
 
-<%= form_with scope: :project, url: user_projects_path(@project), method: :patch do |form| %>
+<%= form_with scope: :project, url: user_project_path(current_user), method: :patch do |form| %>
 
 <div class="container" style="border:1px solid #cecece;">
     <div class="row mt-4 mb-3" >

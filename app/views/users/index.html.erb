@@ -1,5 +1,9 @@
 <h1 class="display-4 text-center">All Users</h1>
-
+<% flash.each do |type,msg| %>
+    <div class="badge badge-primary">
+        <%= msg %>
+    </div>
+<% end %>
 <table class="table table-hover">
   <thead>
     <tr>

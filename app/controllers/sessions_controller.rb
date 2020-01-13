@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     # render plain: user.inspect
     if @user 
       session[:user_id] = @user.id 
-      redirect_to '/welcome'
+      redirect_to '/welcome', notice: "You are logged in, #{@user.firstname}"
     else
       redirect_to '/login'
     end
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   end
   def destroy
     session.destroy
-    redirect_to '/welcome', notice: "Logged Out Successfully"
+    redirect_to '/login', notice: "Logged Out Successfully"
   end
 
  

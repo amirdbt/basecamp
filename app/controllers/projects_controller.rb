@@ -17,13 +17,13 @@ class ProjectsController < ApplicationController
     def create
         @user = User.find(params[:user_id])
         @project = @user.projects.create(project_params)
-        redirect_to user_projects_path
+        redirect_to user_projects_path, notice: "Project created!"
     end
     def update
         @user = User.find(params[:user_id])        
         @project = @user.projects.find(params[:id])
         if @project.update(project_params)
-            redirect_to user_projects_path
+            redirect_to user_projects_path, notice: "Project updated"
         else
             render 'edit'
         end
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
         @user = User.find(params[:user_id])
         @project = @user.projects.find(params[:id])
         @project.destroy
-        redirect_to user_projects_path
+        redirect_to user_projects_path, notice: "Project deleted successfully!"
     end
 
     private

@@ -19,3 +19,14 @@
   background-color: snow;
   color: cornflowerblue;
 }
+.title {
+  display: flex;
+}
+.c {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card {
+  margin-top: 20px;
+}

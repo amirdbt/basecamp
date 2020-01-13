@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     skip_before_action :authorized, only: [:new, :create]
     def index
         @users = User.all
+        flash.now[:notice] = "Users - #{@users.size}"
     end
     def show
         @user = User.find(params[:id])
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
 
        if @user.save
             session[:user_id] = @user.id
-            redirect_to '/welcome'
+            redirect_to '/welcome',  notice: "You are logged in, #{@user.firstname}"
        else
             render 'new'
        end

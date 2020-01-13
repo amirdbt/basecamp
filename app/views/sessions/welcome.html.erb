@@ -1,10 +1,18 @@
 <% if logged_in? %>
-    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert" >
-    <h1 class="display-4">You are Logged In, <%= current_user.firstname %></h1>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+    <% flash.each do |type, msg| %>
+       <div class="alert alert-success mt-3">
+        <%= msg %>
     </div>
+    <% end %>
+     <div class="jumbotron">
+    <div class="header">
+    <h1 class="display-4">Welcome to MyBasecamp</h1>
+    <img src="https://upskill.us.qwasar.io/assets/logo-926e999808b6038bbf3c4a89af2fac72c5ba2ec4c658ba5bcef5a4a274044c21.svg" width="80px" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} ml-3" alt="">
+    </div>  
+  <p class="lead">Get it together and manage projects the right way.</p>
+  <hr class="my-4">
+  <p>Create Basecamp projects for everything you're working on.</p>
+</div>
     <% else %>
     <div class="jumbotron">
     <div class="header">

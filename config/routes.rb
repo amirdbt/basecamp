@@ -16,8 +16,5 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get "admin", to: 'users#makeAdmin'
 
-  patch 'users/:id/projects', to: 'projects#update', method: :patch
-  # get project_path to: 'users#new'
-
   root "sessions#welcome"
 end

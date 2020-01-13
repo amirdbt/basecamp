@@ -1,4 +1,9 @@
 <div class="fm">
+<% flash.each do |type,msg| %>
+<div class="alert alert-success">
+        <%= msg %>
+    </div>
+<% end %>
 <h1 class="text-center mt-4 mb-3">Log In <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
     <%= form_with scope: :session ,url: sessions_path do |form| %>
     <div class="container box" style="border:1px solid #cecece;">

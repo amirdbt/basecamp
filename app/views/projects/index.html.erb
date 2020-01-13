@@ -1,5 +1,13 @@
   <h3 class=""> Projects</h3>
+    <% if current_user %>
+<% flash.each do |type,msg| %>
+    <div class="alert alert-success">
+        <%= msg %>
+    </div>
+<% end %>
+<% end %>
   <div class="c"> 
+
   <% if current_user.projects.length > 0 %>
     <% current_user.projects.each do |project| %>
   
