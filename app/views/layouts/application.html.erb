@@ -25,11 +25,13 @@
     </ul>
       <div class="log">  
      
-      <% if logged_in? %>  
+      <% if logged_in? %>       
+          <% if current_user.admin == true %>
        <li class="nav-item">   
        <i class="fa fa-users m" ></i>   
         <%= link_to "All Users", users_path %>
       </li>
+         <% end %>
        <li class="nav-item">   
        <i class="fa fa-user-circle m" ></i>   
         <%= link_to "Dashboard", user_path(current_user) %>

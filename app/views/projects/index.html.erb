@@ -1,5 +1,6 @@
   <h3 class=""> Projects</h3>
   <div class="c"> 
+  <% if current_user.projects.length > 0 %>
     <% current_user.projects.each do |project| %>
   
      <div class="card m-2 c" style="width: 18rem;">
@@ -14,6 +15,11 @@
                                       data: {confirm: "Are you sure?"}, 
                                       :class => "btn btn-danger" %> 
       </div>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="alert alert-warning" role="alert">
+          No Projects Created Yet!
       </div>
     <% end %>
   </div>

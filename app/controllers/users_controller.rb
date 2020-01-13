@@ -27,6 +27,18 @@ class UsersController < ApplicationController
 
         redirect_to users_path
     end
+  
+    def makeAdmin       
+        @user = User.find(params[:format])
+        if @user[:admin] == true
+            @user.update_attribute(:admin, false)           
+        else
+            @user.update_attribute(:admin, true)
+        end
+        # render plain: @user[:admin]
+        # @user.update(status: params[:status])
+        redirect_to @user
+    end
 
     private
     def user_params
