@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         end
         # render plain: @user[:admin]
         # @user.update(status: params[:status])
-        redirect_to @user
+        redirect_to users_path
     end
 
     private

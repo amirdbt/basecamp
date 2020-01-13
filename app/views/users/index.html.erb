@@ -29,7 +29,7 @@
       <% if user.admin == false %>
       <td><%= link_to 'Make Admin', admin_path(user), :class => "btn btn-light"  %></td>
       <% else %>
-      <td><%= link_to 'Remove Admin', admin_path(user), :class => "btn btn-light"  %></td>
+      <td><%= link_to 'Remove Admin', admin_path(user), :class => "btn btn-light rmadmin"  %></td>
       <% end %>
       <td><%= link_to 'Delete user', user_path(user),
                                       method: :delete,
