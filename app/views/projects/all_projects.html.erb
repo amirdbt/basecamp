@@ -14,7 +14,7 @@
         <hr>
         <p class="card-text"><%= project.details %></p>  
         <%= link_to 'Show',"projects/#{project.id}" , :class => "btn btn-light" %>
-        <button class="btn btn-light" disabled><%= project.user_id %></button>
+        <button class="btn btn-light" disabled><%= User.find(project.user_id).firstname %> <%= User.find(project.user_id).lastname %></button>
       </div>
       </div>
     <% end %>
