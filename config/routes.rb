@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'authorized', to: 'sessions#page_requires_login'
   get 'logout', to: 'sessions#destroy'
   get "admin", to: 'users#makeAdmin'
+  get 'projects', to: 'projects#all_projects'
 
   root "sessions#welcome"
 end

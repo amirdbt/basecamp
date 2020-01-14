@@ -34,6 +34,10 @@ class ProjectsController < ApplicationController
         @project.destroy
         redirect_to user_projects_path, notice: "Project deleted successfully!"
     end
+    def all_projects
+        @projects = Project.all
+        flash.now[:notice] = "#{@projects.size} - Projects"
+    end
 
     private
     def project_params
