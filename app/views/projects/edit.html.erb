@@ -14,7 +14,13 @@
             <%= form.label :Project_details %>
             <%= form.text_area( :details, {:class => "form-control"}) %>
         </div>
-    </div>  
+    </div> 
+     <div class="row mb-3">
+        <div class="col-md-12 col-xs-12">
+            <%= form.label :project_image %>
+            <%= form.file_field :image %>
+        </div>
+    </div>   
     <div class="row mb-4">
         <div class="col-md-12 col-xs-12">
             <%= form.submit({:class => "btn btn-outline-primary btn-block"}) %>

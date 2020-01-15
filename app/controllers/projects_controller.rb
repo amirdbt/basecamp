@@ -17,11 +17,13 @@ class ProjectsController < ApplicationController
     def create
         @user = User.find(params[:user_id])
         @project = @user.projects.create(project_params)
+        # @project.image.attach(params[:image])
         redirect_to user_projects_path, notice: "Project created!"
     end
     def update
         @user = User.find(params[:user_id])        
         @project = @user.projects.find(params[:id])
+        # @project.image.attach(params[:image])
         if @project.update(project_params)
             redirect_to user_projects_path, notice: "Project updated"
         else
@@ -41,6 +43,6 @@ class ProjectsController < ApplicationController
 
     private
     def project_params
-        params.require(:project).permit(:name, :details)
+        params.require(:project).permit(:name, :details, :image)
     end
 end

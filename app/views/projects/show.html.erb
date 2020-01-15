@@ -1,6 +1,7 @@
 <div class="project">
 <div class="card" style="width: 40rem;">
-  <img src="https://www.enr.com/ext/resources/custom-content/Infocenter/2018/Unanet/Untitled-19.jpg?1575391866" class="card-img-top" alt="project">
+  <%# <img src="https://www.enr.com/ext/resources/custom-content/Infocenter/2018/Unanet/Untitled-19.jpg?1575391866" class="card-img-top" alt="project"> %>
+  <%= image_tag @project.image if @project.image.attached? %>
   <div class="card-body">
     <h5 class="card-title"><%= @project.name %></h5>
     <p class="card-text"><%= @project.details %></p>
