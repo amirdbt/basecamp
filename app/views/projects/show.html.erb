@@ -1,11 +1,25 @@
 <div class="project">
+<div class="img"> 
+  <% @project.image.each do |image| %>
+          <% if (["application/pdf","application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document","text/plain",'text/csv'].include?(image.content_type)) %>
+              <h5><%= image.filename %></h5>
+              <%= link_to "Open File", image, :class => "btn btn-sm btn-secondary", "target" => "_blank" %>
+          <% else %>
+              <%= image_tag image %>
+                <%= link_to 'Remove image', delete_image_attachment_user_project_path(image.id),
+                          method: :delete,
+                          data: {confirm: "Are you sure?"} ,
+                          :class =>"btn btn-light"%>         
+          <% end %>   
+  <% end %>
+</div>
 <div class="card" style="width: 40rem;">
   <%# <img src="https://www.enr.com/ext/resources/custom-content/Infocenter/2018/Unanet/Untitled-19.jpg?1575391866" class="card-img-top" alt="project"> %>
-  <%= image_tag @project.image if @project.image.attached? %>
+ 
   <div class="card-body">
     <h5 class="card-title"><%= @project.name %></h5>
     <p class="card-text"><%= @project.details %></p>
   </div>
 </div>
-<%= link_to 'Back', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm' %>
+<%= link_to 'Back', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm bt' %>
 </div>

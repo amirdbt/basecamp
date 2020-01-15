@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
     def create
         @user = User.find(params[:user_id])
         @project = @user.projects.create(project_params)
+        # render plain: @project.inspect
         # @project.image.attach(params[:image])
         redirect_to user_projects_path, notice: "Project created!"
     end
@@ -41,8 +42,14 @@ class ProjectsController < ApplicationController
         flash.now[:notice] = "#{@projects.size} - Projects"
     end
 
+    def delete_image_attachment
+        @image = ActiveStorage::Attachment.find(params[:id])
+        @image.purge
+        redirect_to @project
+    end
+
     private
     def project_params
-        params.require(:project).permit(:name, :details, :image)
+        params.require(:project).permit(:name, :details, image: [])
     end
 end

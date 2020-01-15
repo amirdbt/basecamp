@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # get 'sessions/welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do
-    resources :projects
+    resources :projects do
+      member do
+        delete :delete_image_attachment
+      end
+    end
   end
   # resources :projects
   resources :sessions

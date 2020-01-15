@@ -4,7 +4,7 @@
 
 .project {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 .btn {
@@ -21,4 +21,14 @@
 }
 .alld {
   display: flex;
+}
+.img {
+  display: flex;
+  flex-flow: row wrap;
+  img {
+    width: 200px;
+  }
+}
+.bt {
+  width: 50px;
 }
