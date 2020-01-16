@@ -3,10 +3,10 @@
   <% @project.image.each do |image| %>
           <% if (["application/pdf","application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document","text/plain",'text/csv'].include?(image.content_type)) %>
               <h5><%= image.filename %></h5>
-              <%= link_to "Open File", image, :class => "btn btn-sm btn-secondary", "target" => "_blank" %>
+              <%= link_to "Open File", image, :class => "btn btn-sm btn-light", "target" => "_blank" %>
           <% else %>
               <%= image_tag image %>
-                <%= link_to 'Remove image', delete_image_attachment_user_project_path(image.id),
+                <%= link_to 'Remove image', delete_image_attachment_user_project_path(image),
                           method: :delete,
                           data: {confirm: "Are you sure?"} ,
                           :class =>"btn btn-light"%>         
