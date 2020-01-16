@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
+
     def index
-        @projects = Project.all
+        @pagy,@projects = pagy(Project.all, items:5)
     end
     # def new
     #     @project = Project.new
@@ -38,7 +39,8 @@ class ProjectsController < ApplicationController
         redirect_to user_projects_path, notice: "Project deleted successfully!"
     end
     def all_projects
-        @projects = Project.all
+        # @projects = Project.paginate(page: params[:page], per_page: 10)
+        @pagy, @projects = pagy(Project.all, items:10)
         flash.now[:notice] = "#{@projects.size} - Projects"
     end
 

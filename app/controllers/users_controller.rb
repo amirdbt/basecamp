@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:new, :create]
     def index
-        @users = User.all
+        @pagy ,@users = pagy(User.all,items:5)
         flash.now[:notice] = "Users - #{@users.size}"
     end
     def show
