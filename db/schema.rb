@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_105610) do
+ActiveRecord::Schema.define(version: 2020_01_20_094041) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 2020_01_14_105610) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "project_users", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "del"
+    t.boolean "update"
+    t.boolean "create"
+    t.boolean "read", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_users_on_project_id"
+    t.index ["user_id"], name: "index_project_users_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "details"
@@ -40,6 +53,25 @@ ActiveRecord::Schema.define(version: 2020_01_14_105610) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "threadds", force: :cascade do |t|
+    t.string "topic"
+    t.text "description"
+    t.integer "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_threadds_on_project_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_topics_on_project_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,5 +87,10 @@ ActiveRecord::Schema.define(version: 2020_01_14_105610) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "project_users", "projects"
+  add_foreign_key "project_users", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "threadds", "projects"
+  add_foreign_key "topics", "projects"
+  add_foreign_key "topics", "users"
 end

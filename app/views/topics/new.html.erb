@@ -1,0 +1,21 @@
+<h2 class="display-4  text-center mb-3">Add Thread <i class="fa fa-forumbee m" ></i></h2>
+
+<%= form_for(:topic, url:  user_project_topics_path) do |form| %>
+
+<div class="container" style="border:1px solid #cecece;">
+    <div class="row mt-4 mb-3" >
+        <div class="col-md-12 col-xs-12">
+            <%= form.label :Thread_name %>
+            <%= form.text_field( :name,{ :class => "form-control"}) %>
+        </div>
+    </div>    
+    
+    <div class="row mb-4">
+        <div class="col-md-12 col-xs-12">
+            <%= form.submit("+Add thread",{:class => "btn btn-outline-primary btn-block"}) %>
+          
+        </div>
+    </div>    
+</div>
+<% end %>
+

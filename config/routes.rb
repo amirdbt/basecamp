@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   # get 'sessions/login'
   # get 'sessions/welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  # post "topic", to: "topics#begin_thread"
   resources :users do
     resources :projects do
-      member do
-        delete :delete_image_attachment
-      end
+      resources :topics
     end
   end
-  # resources :projects
   resources :sessions
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -21,5 +20,6 @@ Rails.application.routes.draw do
   get "admin", to: 'users#makeAdmin'
   get 'projects', to: 'projects#all_projects'
 
+  
   root "sessions#welcome"
 end

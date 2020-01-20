@@ -14,6 +14,8 @@ class ProjectsController < ApplicationController
     def show
         @user = User.find(params[:user_id])
         @project = @user.projects.find(params[:id])
+        @users = User.all
+        
     end
     def create
         @user = User.find(params[:user_id])
@@ -49,9 +51,20 @@ class ProjectsController < ApplicationController
         @image.purge
         redirect_to @project
     end
+    def allUsers
+        @users = User.all
+    end
 
+    def begin_thread
+      
+        render plain: 'params[:user]'
+    end
+    
     private
     def project_params
         params.require(:project).permit(:name, :details, image: [])
+    end
+    def topic_params
+        params.require(:topic).permit(:name)
     end
 end

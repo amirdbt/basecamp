@@ -1,0 +1,14 @@
+<div class="c">
+<%  @topics.each do |topic| %> 
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success"> <%= topic.name %></div>
+  <div class="card-body text-muted">
+    <h5 class="card-title">Created <%= time_ago_in_words(topic.created_at) %></h5>
+  </div>
+  <div class="card-footer bg-transparent border-success">
+  <button type="button" class="btn btn-light btn-sm">Add Comment</button>
+  </div>
+</div>
+<% end  %>
+</div>
+
