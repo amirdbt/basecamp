@@ -31,7 +31,14 @@ class TopicsController < ApplicationController
         @topic =Topic.find(params[:id])
     end
     def update
-        render plain: params.inspect
+        @user = User.find(params[:user_id])
+        @project = @user.projects.find(params[:project_id]) 
+        @topic = Topic.find(params[:id])
+        if @topic.update(topic_params)
+            redirect_to user_project_topics_path, notice: "Thread updated"
+        else
+            render 'edit'
+        end
     end
     def destroy
         @topic =Topic.find(params[:id])
