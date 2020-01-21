@@ -1,0 +1,9 @@
+ <div class="card w-75">
+        <div class="card-body msg">
+           <h5 class="card-title">Add Message</h5>
+           <%= form_with(scope: :message, url: user_project_topic_messages_path)  do |form| %>
+           <%= form.text_area :content, :cols => 70, :rows =>5, :placeholder => "Add Message..." %>
+           <%= form.submit "Add Message", :class => "btn btn-light btn-sm" %>
+           <% end %>
+        </div>
+    </div>

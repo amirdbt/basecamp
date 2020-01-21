@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # post "topic", to: "topics#begin_thread"
   resources :users do
     resources :projects do
-      resources :topics
+      resources :topics do
+        resources :messages
+      end
     end
   end
   resources :sessions

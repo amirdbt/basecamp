@@ -35,3 +35,10 @@ nav {
 .m {
   color: cornflowerblue;
 }
+li{
+  list-style-type: none;
+  margin: 15px;
+}
+ul{
+  justify-content: space-between;
+}

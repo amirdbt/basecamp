@@ -1,14 +1,27 @@
+ <% if current_user %>
+<% flash.each do |type,msg| %>
+    <div class="alert alert-success">
+        <%= msg %>
+    </div>
+<% end %>
+<% end %>
 <div class="c">
+<% if @topics.length > 0 %>
 <%  @topics.each do |topic| %> 
 <div class="card border-primary mb-3" style="max-width: 18rem;">
   <div class="card-header bg-transparent border-success"> <%= topic.name %></div>
-  <div class="card-body text-muted">
-    <h5 class="card-title">Created <%= time_ago_in_words(topic.created_at) %></h5>
-  </div>
   <div class="card-footer bg-transparent border-success">
-  <button type="button" class="btn btn-light btn-sm">Add Comment</button>
+   <%= link_to 'View',"topics/#{topic.id}" , :class => "btn btn-light" %>
+    <%= link_to 'Edit',"topics/#{topic.id}/edit", :class => "btn btn-warning" %> 
+    <%= link_to 'X', "topics/#{topic.id}", 
+                                       method: :delete,
+                                      data: {confirm: "Are you sure?"}, 
+                                      :class => "btn btn-danger" %> 
   </div>
 </div>
 <% end  %>
+<% else %>
+  <h1 class="display-2">No Threads created Yet</h1>
+<% end %>
 </div>
 

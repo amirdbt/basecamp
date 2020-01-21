@@ -6,3 +6,22 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.msg {
+  justify-content: center;
+}
+.profile {
+  display: flex;
+}
+.cmmnt-content {
+  margin-left: 15px;
+}
+.msb {
+  margin-left: 40px;
+}
+.pdetails {
+  display: flex;
+  justify-content: space-evenly;
+}
+.btns{
+  margin-left: 260px;
+}

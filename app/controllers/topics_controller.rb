@@ -1,15 +1,17 @@
 class TopicsController < ApplicationController
     def index
-        @topics = Topic.all
+        @topics = Topic.where(project_id: params[:project_id])
+        # render plain: Topic.where(project_id: params[:project_id]).inspect
     end
     def new
         @topic = Topic.new
-
-    #     @user = User.find(params[:user_id])
-    #     @project = @user.projects.find(params[:project_id]) 
-    #     # @topic = @project.topics.find(params[:id])
-    #     render plain: @project.inspect
-    #     # render plain: params.inspect
+    end
+    def show
+        @user = User.find(params[:user_id])
+        @project = @user.projects.find(params[:project_id]) 
+        # @topic =@user.project.find(params[:id])
+        # @topic  = Topic.where(topic_id: params[:id])
+        # @messages = Message.all
     end
     def create
         @user = User.find(params[:user_id])
@@ -26,11 +28,15 @@ class TopicsController < ApplicationController
         
     end
     def edit
-        
+        @topic =Topic.find(params[:id])
     end
-    
+    def update
+        render plain: params.inspect
+    end
     def destroy
-        
+        @topic =Topic.find(params[:id])
+        @topic.destroy
+        redirect_to user_project_topics_path, notice: "Thread Deleted"
     end
 
     private
