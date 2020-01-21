@@ -20,6 +20,16 @@ class MessagesController < ApplicationController
     def edit
         @message = Message.find(params[:id])
     end
+    def update
+        @user = User.find(params[:user_id])
+        @topic = Topic.find(params[:topic_id])
+        @message = Message.find(params[:id])
+        if @message.update(message_params)
+            redirect_to user_project_topic_path(user_id: @user.id, project_id: params[:project_id], id: @topic.id), notice: "Message updated!"
+        else
+            render 'edit'
+        end
+    end
     def destroy
         @user = User.find(params[:user_id])
         @topic = params[:topic_id]
