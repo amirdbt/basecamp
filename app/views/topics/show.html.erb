@@ -17,12 +17,13 @@
                         <header><%= User.find(message.user_id).firstname %> <%= User.find(message.user_id).lastname %><span class="pubdate text-muted"> - posted <%= time_ago_in_words(message.created_at) %> ago</span></header>
                         <p><%= message.content %></p>
                         </div>
-                   <div class="btns"> 
-                     <%= link_to 'Edit',"#{@topic.id}/messages/#{message.id}/edit", :class => "btn btn-warning" %> 
+                   <div class="btns">                    
+                    <%= link_to 'Edit',"#{@topic.id}/messages/#{message.id}/edit", :class => "btn btn-warning" %> 
                     <%= link_to 'X', "#{@topic.id}/messages/#{message.id}", 
                                        method: :delete,
                                       data: {confirm: "Are you sure?"}, 
                                       :class => "btn btn-danger" %> 
+
                     </div>                  
                      </div>                  
                 </div>

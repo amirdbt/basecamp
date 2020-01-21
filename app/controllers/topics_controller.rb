@@ -7,11 +7,11 @@ class TopicsController < ApplicationController
         @topic = Topic.new
     end
     def show
-        @user = User.find(params[:user_id])
-        @project = @user.projects.find(params[:project_id]) 
+         @user = User.find(params[:user_id])
+         @project = @user.projects.find(params[:project_id]) 
         # @topic =@user.project.find(params[:id])
-        # @topic  = Topic.where(topic_id: params[:id])
-        # @messages = Message.all
+        @topic  = Topic.find(params[:id])
+        @messages = Message.all
     end
     def create
         @user = User.find(params[:user_id])
