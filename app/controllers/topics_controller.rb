@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
          @project = @user.projects.find(params[:project_id]) 
         # @topic =@user.project.find(params[:id])
         @topic  = Topic.find(params[:id])
+        # render plain: @topic.messages.inspect
         @messages = Message.all
     end
     def create
@@ -21,7 +22,7 @@ class TopicsController < ApplicationController
         topic.project_id = @project.id
         topic.user_id = @user.id
         if topic.save
-            redirect_to user_projects_path, notice: "Thread created"
+            redirect_to user_project_topics_path, notice: "Thread created"
         else
             render 'new'
         end      

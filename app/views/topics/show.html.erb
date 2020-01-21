@@ -4,11 +4,17 @@
     </div>
 <% end %>
 <div id="w">
-    <h1 class="text-center"><%= @project.name %></h1>    
-    <div class="msb">  <%= link_to '+Message', new_user_project_topic_message_path(topic_id: @topic.id) , :class => "btn btn-primary btn-sm" %></div>
+  <div class="card text-center w-70">
+  <div class="card-body">
+    <h1 class="display-4 text-center">Project -<%= @project.name %></h1>  
+    <h2 class="display-4 text-center">Thread-<%= @topic.name %></h2>  
+  </div>
+</div>
+    <div class="msb">  <%= link_to 'Message', new_user_project_topic_message_path(topic_id: @topic.id) , :class => "btn btn-primary btn-sm fa fa-plus" %></div>
     <div id="container">
-      <ul id="comments">	
-      <% @messages.each do |message| %>		
+      <ul id="comments">
+      <% if @topic.messages.length > 0 %>	
+      <% @topic.messages.each do |message| %>		
             <div class="card w-75">
                 <div class="card-body profile">
                     <div class="pdetails">
@@ -28,6 +34,9 @@
                      </div>                  
                 </div>
             </div>
+        <% end %>
+        <% else %>
+        <h1 class="display-4 text-center">No comments yet!</h1>
         <% end %>
       </ul>
     </div>
