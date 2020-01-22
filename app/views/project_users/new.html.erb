@@ -1,0 +1,38 @@
+<h1 class="display-4">Add users to your project <%= @project_user %></h1>
+
+<%= form_with scope: :project_user, url: user_project_project_users_path do |form| %>
+
+<div class="container" style="border:1px solid #cecece;">
+    <div class="row mt-4 mb-3" >
+        <div class="col-md-12 col-xs-12">
+            <%= form.label :User %>
+            <%= form.select( :user, options_for_select(@users), {},{ :class => "form-control"}) %>
+        </div>
+    </div>    
+       <h4 class="text-muted">Select user access: </h4>
+        <div class="custom-control-container access" style="margin-bottom:30px">
+            <div class="custom-control custom-checkbox">
+                <%= form.check_box :create, :class => 'form-control', :id => "create_access"  %>
+                <%= form.label :write_access   %>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <%= form.check_box :read, :class => 'form-control', :id => "read_access"  %>
+                <%= form.label :read_access  %>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <%= form.check_box :update_access, :class => 'form-control', :id => "update_access"  %>
+                <%= form.label :update_access  %>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <%= form.check_box :del, :class => 'form-control', :id => "delete_access"  %>
+                <%= form.label :delete_access   %>
+            </div>
+        </div>
+         <div class="row mb-4">
+        <div class="col-md-12 col-xs-12">
+            <%= form.submit("Add ",{:class => "btn btn-light btn-block"}) %>
+          
+        </div>
+    </div>    
+</div>
+<% end %>

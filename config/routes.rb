@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   # post "topic", to: "topics#begin_thread"
   resources :users do
     resources :projects do
+      resources :project_users
       resources :topics do
         resources :messages
       end
     end
   end
+ 
   resources :sessions
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

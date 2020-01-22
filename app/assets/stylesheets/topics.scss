@@ -1,7 +1,7 @@
 // Place all the styles related to the Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.c {
+.author{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -18,10 +18,11 @@
 .msb {
   margin-left: 40px;
 }
+.cc {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
 .pdetails {
-  display: flex;
   justify-content: space-evenly;
 }
-.btns{
-  margin-left: 260px;
+.btns {
 }

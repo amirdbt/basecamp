@@ -1,0 +1,35 @@
+<h1 class="display-4 text-center">All Users</h1>
+<% flash.each do |type,msg| %>
+    <div class="badge badge-primary">
+        <%= msg %>
+    </div>
+<% end %>
+ <% if @project_users.length > 0 %>
+<table class="table table-hover">
+  <thead>
+    <tr>    
+      <th scope="col">Project</th>
+      <th scope="col">User</th>
+      <th scope="col">Delete Access</th>
+      <th scope="col">Update Access</th>
+      <th scope="col">Write Access</th>
+       <th scope="col">Read Access</th>
+    </tr>
+  </thead>
+  <tbody> 
+  <% @project_users.each do |project| %>
+    <tr>
+      <td><%= Project.find(project.project_id).name %></td>
+      <td><%= User.find(project.user_id).firstname %> <%= User.find(project.user_id).lastname %></td>
+      <td><%= project.del %></td>
+      <td><%= project.update_access %></td>
+      <td><%= project.create %></td>
+      <td><%= project.read %></td>   
+    </tr>
+<% end %>
+  </tbody>
+ </table>
+ <% else %>
+<h2>No Users added yet</h2>
+<% end %>
+  <%= link_to 'Back', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
