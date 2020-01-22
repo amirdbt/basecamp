@@ -13,7 +13,8 @@
         </p>
         <% if current_user == @user %>
           <%= link_to 'Add Project', "#{current_user.id}/projects/new", :class => "btn btn-outline-info btn-sm" %>
-            <%= link_to 'View Projects', "#{current_user.id}/projects", :class => "btn btn-outline-secondary btn-sm" %>
+          <%= link_to 'View Projects', "#{current_user.id}/projects", :class => "btn btn-outline-secondary btn-sm" %>
+           <%= link_to 'Shared Projects', shared_projects_path, :class => "btn btn-light btn-sm" %>
         <% end %>
         </div>
 

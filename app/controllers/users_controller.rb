@@ -40,6 +40,11 @@ class UsersController < ApplicationController
         redirect_to users_path
     end
 
+    def shared_projects
+        @user = User.find(current_user.id)
+        # render plain: @user.project_users.inspect
+    end
+
     private
     def user_params
         params.require(:user).permit(:firstname, :lastname, :email, :job_title, :location, :password, :password_confirmation)

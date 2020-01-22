@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get "admin", to: 'users#makeAdmin'
   get 'projects', to: 'projects#all_projects'
-
+  get 'shared_projects', to: 'users#shared_projects'
   
   root "sessions#welcome"
 end

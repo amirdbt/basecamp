@@ -1,0 +1,41 @@
+<h2>Your shared projects</h2>
+    <% if current_user %>
+<% flash.each do |type,msg| %>
+    <div class="alert alert-success">
+        <%= msg %>
+    </div>
+<% end %>
+<% end %>
+  <div class="c"> 
+
+  <% if @user.project_users.length > 0 %>
+    <% @user.project_users.each do |project| %>
+  
+     <div class="card border-dark m-2 c" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= Project.find(project.project_id).name %></h5>
+        <hr>
+        <p class="card-text"><%= Project.find(project.project_id).details %></p>  
+        <% if project.read == true  %>
+            <%= link_to 'View Thread',user_project_topics_path(project_id: project.id) , :class => "btn btn-light btn-sm" %>      
+            <%= link_to 'Show',"projects/#{project.id}" , :class => "btn btn-light" %>
+        <% end %> 
+        <% if project.update_access == true %>
+        <%= link_to 'Edit',"projects/#{project.id}/edit", :class => "btn btn-light" %> 
+        <% end %>
+        <% if project.del == true %>
+        <%= link_to 'X', "projects/#{project.id}", 
+                                       method: :delete,
+                                      data: {confirm: "Are you sure?"}, 
+                                      :class => "btn btn-danger" %> 
+        <% end %>
+      </div>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="alert alert-warning" role="alert">
+          No Projects Created Yet!
+      </div>
+    <% end %>
+  </div>
+  
