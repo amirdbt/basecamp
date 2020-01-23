@@ -11,12 +11,21 @@
 <div class="card border-primary mb-3" style="max-width: 18rem;">
   <div class="card-header bg-transparent border-success"> <%= topic.name %></div>
   <div class="card-footer bg-transparent border-success">
+  <% if current_user == topic.user_id  %>
    <%= link_to 'View',"topics/#{topic.id}" , :class => "btn btn-light" %>
     <%= link_to 'Edit',"topics/#{topic.id}/edit", :class => "btn btn-warning" %> 
     <%= link_to 'X', "topics/#{topic.id}", 
                                        method: :delete,
                                       data: {confirm: "Are you sure?"}, 
                                       :class => "btn btn-danger" %> 
+    <% else %>
+    <%= link_to 'View',user_projects_path(@project.user_id) + "/#{topic.project_id}/topics/#{topic.id}" , :class => "btn btn-light" %>
+    <%= link_to 'Edit',"topics/#{topic.id}/edit", :class => "btn btn-warning" %> 
+    <%= link_to 'X', "topics/#{topic.id}", 
+                                       method: :delete,
+                                      data: {confirm: "Are you sure?"}, 
+                                      :class => "btn btn-danger" %> 
+    <% end %>
   </div>
 </div>
 <% end  %>

@@ -17,8 +17,8 @@
         <hr>
         <p class="card-text"><%= Project.find(project.project_id).details %></p>  
         <% if project.read == true  %>
-            <%= link_to 'View Thread',user_project_topics_path(project_id: project.id) , :class => "btn btn-light btn-sm" %>      
-            <%= link_to 'Show',"projects/#{project.id}" , :class => "btn btn-light" %>
+            <%= link_to 'View Thread',user_projects_path(project.user_id) + "/#{project.project_id}/topics" , :class => "btn btn-light btn-sm" %>      
+            <%= link_to 'Show',user_projects_path(project.user_id) + "/#{project.project_id}" , :class => "btn btn-light" %>
         <% end %> 
         <% if project.update_access == true %>
         <%= link_to 'Edit',"projects/#{project.id}/edit", :class => "btn btn-light" %> 
