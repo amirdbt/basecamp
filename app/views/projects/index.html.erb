@@ -11,23 +11,43 @@
   <% if current_user.projects.length > 0 %>
     <% current_user.projects.each do |project| %>
   
-     <div class="card border-dark m-2 c" style="width: 18rem;">
+     <div class="card border-dark m-2 c" style="width: 22rem;">
       <div class="card-body">
         <h5 class="card-title"><%= project.name %></h5>
         <hr>
         <p class="card-text"><%= project.details %></p>  
+       <div class="ic">
+        <div data-toggle="tooltip" data-placement="top" title="Add Thread">
         <%= link_to ' T', new_user_project_topic_path(project_id: project.id) , :class => "btn btn-light btn-sm fa fa-plus" %>
+        </div>
+        <div data-toggle="tooltip" data-placement="top" title="View Thread">
         <%= link_to '',user_project_topics_path(project_id: project.id) , :class => "btn btn-light btn-sm fa fa-stack-exchange" %>
+        </div>
+         <div data-toggle="tooltip" data-placement="top" title="Add User">
         <%= link_to '', new_user_project_project_user_path(project_id: project.id) , :class => "btn btn-light btn-sm fa fa-user-plus" %>
+</div>
+         <div data-toggle="tooltip" data-placement="top" title="View Users">
         <%= link_to '', user_project_project_users_path(project_id: project.id) , :class => "btn btn-light btn-sm fa fa-users" %>
+            </div>
+         <div data-toggle="tooltip" data-placement="top" title="Add Task">
         <%= link_to ' Task', new_user_project_task_path(project_id: project.id) , :class => "btn btn-light btn-sm fa fa-plus " %>
+  </div>
+         <div data-toggle="tooltip" data-placement="top" title="View Tasks">
          <%= link_to '', user_project_tasks_path(project_id: project.id) , :class => "btn btn-light btn-sm fa fa-tasks" %>
+              </div>
+          <div data-toggle="tooltip" data-placement="top" title="View Project">
         <%= link_to '',"projects/#{project.id}" , :class => "btn btn-light fa fa-eye" %>
+          </div>
+         <div data-toggle="tooltip" data-placement="top" title="Edit Project">
         <%= link_to '',"projects/#{project.id}/edit", :class => "btn btn-light fa fa-pencil" %> 
+          </div>
+         <div data-toggle="tooltip" data-placement="top" title="Delete Project">
         <%= link_to '', "projects/#{project.id}", 
                                        method: :delete,
                                       data: {confirm: "Are you sure?"}, 
                                       :class => "btn btn-danger fa fa-trash" %> 
+                                        </div>
+       </div>
       </div>
       </div>
     <% end %>
@@ -37,4 +57,4 @@
       </div>
     <% end %>
   </div>
-  
+ 
