@@ -8,13 +8,13 @@
   <% if @projects.length > 0 %>
     <% @projects.each do |project| %>
   
-     <div class="card m-2 c" style="width: 18rem;">
+     <div class="card border-dark m-2 c" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= project.name %></h5>
         <hr>
         <p class="card-text"><%= project.details %></p>  
        <div class="alld"> 
-        <%= link_to 'Show',"projects/#{project.id}" , :class => "btn btn-light" %>
+        <%= link_to '',"projects/#{project.id}" , :class => "btn btn-light fa fa-eye" %>
          <button class="btn btn-light btn-sm" disabled><%= project.created_at.strftime(" %B %d, %Y") %></button>
         <button class="btn btn-light btn-sm" disabled><%= User.find(project.user_id).firstname %> <%= User.find(project.user_id).lastname %></button>
        </div>

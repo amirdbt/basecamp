@@ -1,0 +1,36 @@
+ <% if current_user %>
+<% flash.each do |type,msg| %>
+    <div class="alert alert-success">
+        <%= msg %>
+    </div>
+<% end %>
+<% end %>
+<h1 class="display-4">Tasks</h1>
+<div class="c">
+  <% if @tasks.length > 0 %>
+    <% @tasks.each do |task| %>
+  
+     <div class="card border-dark m-2 c" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= task.title %></h5>
+        <hr>
+      <div class="td">
+        <p class="card-text"><%= Project.find(task.project_id).name %></p>  
+        <p class="card-text text-muted"><%= User.find(task.user_id).firstname %> <%= User.find(task.user_id).lastname %></p>  
+      </div>
+            <hr>
+            <%= link_to '',"tasks/#{task.id}/edit", :class => "btn btn-light fa fa-pencil" %> 
+        <%= link_to '', "tasks/#{task.id}", 
+                        method: :delete,
+                        data: {confirm: "Are you sure?"}, 
+                        :class => "btn btn-danger fa fa-trash" %> 
+      </div>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="alert alert-warning" role="alert">
+          No Tasks Created Yet!
+      </div>
+    <% end %>
+  </div>
+  </div>

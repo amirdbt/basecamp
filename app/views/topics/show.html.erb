@@ -10,8 +10,8 @@
     <h2 class="display-4 text-center">Thread-<%= @topic.name %></h2>  
   </div>
 </div>
-    <div class="msb">  <%= link_to 'Message', new_user_project_topic_message_path(topic_id: @topic.id) , :class => "btn btn-primary btn-sm fa fa-plus" %> 
-    <%= link_to 'Back', "/users/#{current_user.id}/projects/#{params[:project_id]}/topics",  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
+    <div class="msb">  <%= link_to '', new_user_project_topic_message_path(topic_id: @topic.id) , :class => "btn btn-primary btn-sm fa fa-comments" %> 
+    <%= link_to '', "/users/#{current_user.id}/projects/#{params[:project_id]}/topics",  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
     </div>
     
       
@@ -29,8 +29,8 @@
             <p class="ml-4 pl-5"><%= message.content %></p>          
         </div>
         <div class="col-md-3">
-            <%= link_to 'Edit',"#{@topic.id}/messages/#{message.id}/edit", :class => "btn btn-warning" %> 
-            <%= link_to 'X', "#{@topic.id}/messages/#{message.id}", data: {confirm: "Are you sure?"}, :class => "btn btn-danger" %> 
+            <%= link_to '',"#{@topic.id}/messages/#{message.id}/edit", :class => "btn btn-light fa fa-pencil" %> 
+            <%= link_to '', "#{@topic.id}/messages/#{message.id}", data: {confirm: "Are you sure?"}, :class => "btn btn-danger fa fa-trash" %> 
         
         </div>
       </div>    

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :projects do
       resources :project_users
+      resources :tasks
       resources :topics do
         resources :messages
       end

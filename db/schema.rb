@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_163722) do
+ActiveRecord::Schema.define(version: 2020_01_23_111428) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2020_01_22_163722) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "threadds", force: :cascade do |t|
     t.string "topic"
     t.text "description"
@@ -102,6 +112,8 @@ ActiveRecord::Schema.define(version: 2020_01_22_163722) do
   add_foreign_key "project_users", "projects"
   add_foreign_key "project_users", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users"
   add_foreign_key "threadds", "projects"
   add_foreign_key "topics", "projects"
   add_foreign_key "topics", "users"

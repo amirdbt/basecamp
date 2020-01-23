@@ -17,17 +17,17 @@
         <hr>
         <p class="card-text"><%= Project.find(project.project_id).details %></p>  
         <% if project.read == true  %>
-            <%= link_to 'View Thread',user_projects_path(project.user_id) + "/#{project.project_id}/topics" , :class => "btn btn-light btn-sm" %>      
-            <%= link_to 'Show',user_projects_path(project.user_id) + "/#{project.project_id}" , :class => "btn btn-light" %>
+            <%= link_to '',user_projects_path(project.user_id) + "/#{project.project_id}/topics" , :class => "btn btn-light  fa fa-stack-exchange" %>      
+            <%= link_to '',user_projects_path(project.user_id) + "/#{project.project_id}" , :class => "btn btn-light fa fa-eye" %>
         <% end %> 
         <% if project.update_access == true %>
-        <%= link_to 'Edit',"projects/#{project.id}/edit", :class => "btn btn-light" %> 
+        <%= link_to '',"projects/#{project.id}/edit", :class => "btn btn-light fa fa-pencil" %> 
         <% end %>
         <% if project.del == true %>
-        <%= link_to 'X', "projects/#{project.id}", 
+        <%= link_to '', "projects/#{project.id}", 
                                        method: :delete,
                                       data: {confirm: "Are you sure?"}, 
-                                      :class => "btn btn-danger" %> 
+                                      :class => "btn btn-danger fa fa-trash" %> 
         <% end %>
       </div>
       </div>

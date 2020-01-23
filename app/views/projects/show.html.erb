@@ -22,24 +22,3 @@
 </div>
 <%= link_to 'Back', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm bt' %>
 </div>
-<div class="card one" style="width: 18rem;">
-  <div class="card-header">
-    Users
-  </div>
-  <% @users.each do |user| %>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item "><button type="button" class="btn btn-light btn-sm btu"><%= user.firstname %> <%= user.lastname %> - Add</button></li>
-  </ul>
-  <% end %>
-</div>
-
-<div class="card one" style="width: 18rem;">
-  <div class="card-header">
-    Users
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"></li>
-  </ul>
-
-</div>
-</div>
