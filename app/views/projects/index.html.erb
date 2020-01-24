@@ -8,8 +8,8 @@
 <% end %>
   <div class="c"> 
 
-  <% if current_user.projects.length > 0 %>
-    <% current_user.projects.each do |project| %>
+  <% if @projects.length > 0 %>
+    <% @projects.each do |project| %>
   
      <div class="card border-dark m-2 c" >
       <div class="card-body">

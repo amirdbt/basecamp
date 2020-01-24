@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
 
     def index
-        @pagy,@projects = pagy(Project.all, items:5)
+        # @pagy,@projects = pagy(Project.all, items:5)
+        @projects = Project.where(user_id: params[:user_id]).order("created_at DESC")
     end
     # def new
     #     @project = Project.new
@@ -47,9 +48,10 @@ class ProjectsController < ApplicationController
     end
 
     def delete_image_attachment
-        @image = ActiveStorage::Attachment.find(params[:id])
+        @image = ActiveStorage::Attachment.find(params[:image_id])
         @image.purge
-        redirect_to @project
+        
+        # redirect_to user_project_path, notice: "Attachment deleted successfully!"
     end
     def allUsers
         @users = User.all

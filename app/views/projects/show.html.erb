@@ -1,3 +1,8 @@
+<% flash.each do |type,msg| %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= msg %>
+    </div>
+<% end %>
 <div class="pd">
 <div class="project">
 <div class="img"> 
@@ -7,7 +12,7 @@
               <%= link_to "Open File", image, :class => "btn btn-sm btn-light", "target" => "_blank" %>
           <% else %>
               <%= image_tag image %>
-              <%# <%= button_tag 'Remove image', image.purge %>    
+              <%= link_to '', "/projects/#{@project.id}/image/#{image.id}", method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-danger fa fa-trash bf" %> 
           <% end %>   
   <% end %>
 </div>

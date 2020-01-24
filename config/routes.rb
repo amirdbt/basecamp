@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   get "admin", to: 'users#makeAdmin'
   get 'projects', to: 'projects#all_projects'
   get 'shared_projects', to: 'users#shared_projects'
-  
+  delete '/projects/:project_id/image/:image_id', :to => 'projects#delete_image_attachment', :method => 'delete'
   root "sessions#welcome"
 end
