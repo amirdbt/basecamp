@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
     def index
         @topics = Topic.where(project_id: params[:project_id])
          @project = Project.find(params[:project_id]) 
+        
         # render plain: @project[:user_id].inspect
     end
     def new

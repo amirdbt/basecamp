@@ -34,5 +34,8 @@
   
 <% end %>
 </div>
-
-<%= link_to 'Back', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
+<% if current_user==@project.user_id %>
+<%= link_to '', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
+<% else %>
+<%= link_to '', shared_projects_path,  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
+<% end %>

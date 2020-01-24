@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to '/welcome',  notice: "You are logged in, #{@user.firstname}"
        else
-            render 'new'
+            render 'new', notice: "Invalid User"
        end
     end  
 
