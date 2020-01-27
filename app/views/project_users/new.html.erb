@@ -1,3 +1,9 @@
+<% flash.each do |type,msg| %>
+    <div class="alert alert-success">
+        <%= msg %>
+    </div>
+<% end %>
+
 <h1 class="display-4">Add users to your project <%= @project_user %></h1>
 
 <%= form_with scope: :project_user, url: user_project_project_users_path do |form| %>

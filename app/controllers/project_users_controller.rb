@@ -17,14 +17,15 @@ class ProjectUsersController < ApplicationController
         project_user.del = project_user_params[:del]
         project_user.update_access = project_user_params[:update_access]
         project_user.create = project_user_params[:create]
-        project_user.read = project_user_params[:read]
-        if project_user.save
-            redirect_to user_project_project_users_path
+        project_user.read = project_user_params[:read]      
+         
+        if project_user.save     
+            redirect_to user_project_project_users_path, notice: "User added successfully"  
         else
-            render 'new'
-        end
-            
-    end
+            render 'new'  
+        end    
+        
+    end      
     def user_destroy
         @project = Project.find(params[:project_id])        
         @project.destroy

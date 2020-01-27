@@ -34,7 +34,7 @@
   
 <% end %>
 </div>
-<% if current_user==@project.user_id %>
+<% if current_user %>
 <%= link_to '', "/users/#{current_user.id}/projects",  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
 <% else %>
 <%= link_to '', shared_projects_path,  :class => 'btn btn-outline-info btn-sm  fa fa-arrow-left' %>
