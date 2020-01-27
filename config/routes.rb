@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   delete '/projects/:project_id/image/:image_id', :to => 'projects#delete_image_attachment', :method => 'delete'
   delete '/projects/:project_id', :to => 'project_users#user_destroy', :method => 'delete'
   get 'users/:user_id/projects/:project_id/user_edit', :to=> 'projects#user_edit'
+  # patch '/users/:user_id/projects/:project_id/', :to=> ''
   root "sessions#welcome"
 end

@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     end
     def create
         @user = User.find(params[:user_id])
-        @project = @user.projects.find(params[:project_id])
+        @project = Project.find(params[:project_id])
         task = Task.new
         task.title = task_params[:title]
         task.project_id = @project.id 
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     end
     def update
         @user = User.find(params[:user_id])
-        @project = @user.projects.find(params[:project_id]) 
+        @project =Project.find(params[:project_id]) 
         @task = Task.find(params[:id])
         if @task.update(task_params)
             redirect_to user_project_tasks_path, notice: "Task updated"

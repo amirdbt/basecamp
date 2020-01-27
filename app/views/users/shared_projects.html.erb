@@ -17,9 +17,13 @@
         <hr>
         <p class="card-text"><%= Project.find(project.project_id).details %></p>  
         <% if project.read == true  %>
-            <%= link_to '',user_projects_path(project.user_id) + "/#{project.project_id}/topics" , :class => "btn btn-light  fa fa-stack-exchange" %>      
+            <%= link_to '',user_projects_path(project.user_id) + "/#{project.project_id}/topics" , :class => "btn btn-light  fa fa-stack-exchange" %>     
  
         <% end %> 
+        <%  if project.create ==  true %>
+           <%= link_to ' Task', user_projects_path(project.user_id) + "/#{project.project_id}/tasks/new" , :class => "btn btn-light btn-sm fa fa-plus " %>
+            <%= link_to '', user_projects_path(project.user_id) + "/#{project.project_id}/tasks", :class => "btn btn-light btn-sm fa fa-tasks" %>
+        <% end %>
         <% if project.update_access == true %>
         <%= link_to '', "users/#{project.user_id}/projects/#{project.project_id}/user_edit", :class => "btn btn-light fa fa-pencil" %> 
         <% end %>
