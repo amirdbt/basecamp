@@ -12,6 +12,10 @@ class ProjectsController < ApplicationController
         @project = @user.projects.find(params[:id]) 
      
     end
+    def user_edit
+        @user = User.find(params[:user_id])
+        @project = Project.find(params[:project_id])
+    end
     def show
         @user = User.find(params[:user_id])
         @project = @user.projects.find(params[:id])
@@ -41,6 +45,7 @@ class ProjectsController < ApplicationController
         @project.destroy
         redirect_to user_projects_path, notice: "Project deleted successfully!"
     end
+  
     def all_projects
         # @projects = Project.paginate(page: params[:page], per_page: 10)
         @pagy, @projects = pagy(Project.all, items:10)
@@ -49,19 +54,12 @@ class ProjectsController < ApplicationController
 
     def delete_image_attachment
         @image = ActiveStorage::Attachment.find(params[:image_id])
-        @image.purge
-        
+        @image.purge        
         # redirect_to user_project_path, notice: "Attachment deleted successfully!"
     end
     def allUsers
         @users = User.all
     end
-
-    def begin_thread
-      
-        render plain: 'params[:user]'
-    end
-    
     private
     def project_params
         params.require(:project).permit(:name, :details, image: [])

@@ -25,7 +25,12 @@ class ProjectUsersController < ApplicationController
         end
             
     end
-
+    def user_destroy
+        @project = Project.find(params[:project_id])        
+        @project.destroy
+        redirect_to user_project_project_users_path, notice: "Project shared has been deleted successfully."
+        # render plain: @project.inspect
+    end
     private
     def project_user_params
         params.require(:project_user).permit(:user,:create,:read,:update_access,:del)
