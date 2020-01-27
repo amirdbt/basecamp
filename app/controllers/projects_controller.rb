@@ -9,13 +9,13 @@ class ProjectsController < ApplicationController
     # end
     def edit
         @user = User.find(params[:user_id])
-        @project = @user.projects.find(params[:id]) 
+        @project = Project.find(params[:id]) 
      
     end
-    def user_edit
-        @user = User.find(params[:user_id])
-        @project = Project.find(params[:project_id])
-    end
+    # def user_edit
+    #     @user = User.find(params[:user_id])
+    #     @project = Project.find(params[:project_id])
+    # end
     def show
         @user = User.find(params[:user_id])
         @project = @user.projects.find(params[:id])
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     end
     def update
         @user = User.find(params[:user_id])        
-        @project = @user.projects.find(params[:id])
+        @project = Project.find(params[:id])
         # @project.image.attach(params[:image])
         if @project.update(project_params)
             redirect_to user_projects_path, notice: "Project updated"

@@ -25,7 +25,7 @@
             <%= link_to '', user_projects_path(project.user_id) + "/#{project.project_id}/tasks", :class => "btn btn-light btn-sm fa fa-tasks" %>
         <% end %>
         <% if project.update_access == true %>
-        <%= link_to '', "users/#{project.user_id}/projects/#{project.project_id}/user_edit", :class => "btn btn-light fa fa-pencil" %> 
+        <%= link_to '',user_projects_path(project.user_id) + "/#{project.project_id}/edit", :class => "btn btn-light fa fa-pencil" %> 
         <% end %>
         <% if project.del == true %>
         <%= link_to '', "projects/#{project.project_id}", 
