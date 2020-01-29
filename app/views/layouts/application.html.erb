@@ -9,7 +9,12 @@
   <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_tag 'https://code.jquery.com/jquery-3.4.1.slim.min.js' %>
+     <%= javascript_tag 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' %>
     <%= javascript_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' %>
+  
+    
+      
   </head>
   <body>
    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
@@ -20,7 +25,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto"> 
       <li class="nav-item ">
         <%= link_to "Home",'/welcome' %>
       </li>
