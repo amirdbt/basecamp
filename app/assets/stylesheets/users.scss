@@ -1,10 +1,7 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.pname {
-  display: flex;
-  justify-content: space-evenly;
-}
+
 .btn {
   justify-content: space-between;
 }
@@ -37,4 +34,16 @@
   background-color: cornflowerblue;
   width: 150px;
   justify-content: space-around;
+}
+.card {
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 0px grey;
+}
+.header-details {
+  display: flex;
+  justify-content: space-between;
+}
+.user-details {
+  display: flex;
+  
 }
